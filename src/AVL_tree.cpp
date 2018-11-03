@@ -1,5 +1,5 @@
 #include <iostream>
-#include <algorithm>      
+#include <algorithm>
 #include "AVL_tree.h"
 
 
@@ -65,10 +65,10 @@ bool AVL_tree::add(int k){
 void AVL_tree::balance_add(AVL_node* check, int change){
 	while(check){
 		check->balance_factor += change;
-		if(check->balance_factor == 0) return;	
+		if(check->balance_factor == 0) return;
 		else if(check->balance_factor == 1 || check->balance_factor == -1){
 			if(check->parent)
-				if(check->parent->left == check) 
+				if(check->parent->left == check)
 					change = -1;
 				else
 					change = 1;
@@ -83,7 +83,7 @@ void AVL_tree::balance_add(AVL_node* check, int change){
 					check->right = RightRotate(check->right->left);
 					check = LeftRotate(check->right);
 				}
-			break;	
+			break;
 		}
 		else {
 			if(check->left->balance_factor == -1){
@@ -95,7 +95,7 @@ void AVL_tree::balance_add(AVL_node* check, int change){
 			}
 			break;
 		}
-	}	
+	}
 }
 
 AVL_node* AVL_tree::RightRotate(AVL_node* B){
@@ -227,7 +227,7 @@ void AVL_tree::pr(AVL_node* r, int h){
     pr(r->left, h+1);
 }
 
-void AVL_tree::remove(int k){
+void AVL_tree::remove(int k){     //unbalanced removing
     AVL_node* current = root;
     AVL_node* parent = root;
     while(current && current->val != k)
@@ -253,7 +253,7 @@ void AVL_tree::remove(int k){
             delete current;
         }
     else
-        if(!current->left){     
+        if(!current->left){
             if(parent == current){
                 root = current->right;
                 delete current;

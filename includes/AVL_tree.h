@@ -1,14 +1,15 @@
-struct AVL_node{
-    int val;
-    AVL_node* left;
-    AVL_node* right;
-    AVL_node* parent;
-    int balance_factor;
-    AVL_node(){}
-    AVL_node(int, AVL_node*, AVL_node*, AVL_node*, int);
-};
-
 class AVL_tree{
+
+    struct AVL_node{
+        int val;
+        AVL_node* left;
+        AVL_node* right;
+        AVL_node* parent;
+        int balance_factor;
+        AVL_node(){}
+        AVL_node(int, AVL_node*, AVL_node*, AVL_node*, int);
+    };
+
     AVL_node* root;
     void Destruct(AVL_node*);
     int h(AVL_node*);
