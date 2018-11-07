@@ -5,7 +5,7 @@
 
 using namespace std;
 
-AVL_node::AVL_node(int v, AVL_node* l = 0, AVL_node* r = 0, AVL_node* p = 0, int bal = 0){
+AVL_tree::AVL_node::AVL_node(int v, AVL_node* l = 0, AVL_node* r = 0, AVL_node* p = 0, int bal = 0){
     val = v;
     left = l;
     right = r;
@@ -98,7 +98,7 @@ void AVL_tree::balance_add(AVL_node* check, int change){
 	}
 }
 
-AVL_node* AVL_tree::RightRotate(AVL_node* B){
+AVL_tree::AVL_node* AVL_tree::RightRotate(AVL_node* B){
 	AVL_node* A = B->parent;
 	AVL_node* Aparent = A->parent;
 	A->left = B->right;
@@ -120,7 +120,7 @@ AVL_node* AVL_tree::RightRotate(AVL_node* B){
 	return B;
 }
 
-AVL_node* AVL_tree::LeftRotate(AVL_node* B){
+AVL_tree::AVL_node* AVL_tree::LeftRotate(AVL_node* B){
 	AVL_node* A = B->parent;
 	AVL_node* Aparent = A->parent;
 	A->right = B->left;

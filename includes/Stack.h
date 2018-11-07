@@ -1,7 +1,7 @@
 #include "Single_list.h"
 
 class Stack{
-	Single_list st;
+	Single_list<int> st;
 public:
 	void push(int);
 	void pop();

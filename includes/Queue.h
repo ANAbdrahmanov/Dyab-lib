@@ -1,7 +1,7 @@
 #include "Double_list.h"
 
 class Queue{
-    Double_list qu;
+    Double_list<int> qu;
 public:
     Queue(){}
     ~Queue(){}

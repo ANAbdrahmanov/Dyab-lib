@@ -1,9 +1,12 @@
+#include <iostream>
+#pragma once
+
 template<class T> class Single_list{
 	struct Single_node{
 	    Single_node *next;
 	    T val;
-	    Single_node(){}
-	    Single_node(T x){
+	    Single_node() = default;
+	    explicit Single_node(T x){
 		    val= x;
 		}
 	    Single_node(T x, Single_node *y){
@@ -62,7 +65,7 @@ public:
 	    head = new Single_node;
 	    tail = head;
 	}
-    Single_list(T x){
+    explicit Single_list(T x){
 	    tail = new Single_node;
 	    head = new Single_node(x);
 	    head->next = tail;
@@ -163,6 +166,7 @@ public:
 			}
 			return cur;
 		}
+
 		iterator operator++(int){
 			iterator temp = *this;
 			current = current->next;

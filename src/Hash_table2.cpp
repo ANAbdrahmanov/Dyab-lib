@@ -1,7 +1,8 @@
 #include <iostream>
+#include <string.h>
 #include "Hash_table2.h"
 
-Cell::Cell(int _data, char* _key, Cell* _next = 0){
+Cell::Cell(int _data, char* _key, Cell* _next = nullptr){
     data = _data;
     next = _next;
     key = new char[strlen(_key)];
@@ -28,7 +29,7 @@ Hash_table2::Hash_table2(int size, int not_f){
     n_entries = 0;
     table = new Cell*[size];
     for(int i = 0; i<table_size; i++)
-        table[i] = 0;
+        table[i] = nullptr;
 }
 
 Hash_table2::~Hash_table2(){
@@ -53,7 +54,7 @@ bool Hash_table2::add(int item, char* _key){
         table_size*=2;
         table = new Cell*[table_size];
         for(int i = 0; i<table_size; i++)
-            table[i] = 0;
+            table[i] = nullptr;
         n_entries = 0;
         for(int i = 0; i<Old_table_size; i++){
             for(Cell* current = Old_table[i]; current;){

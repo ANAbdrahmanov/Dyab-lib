@@ -30,5 +30,5 @@ public:
     void print_preorder();
     void print_inorder();
     void print_postorder();
-    void remove(int);
+    void remove(int); //unbalanced
 };
