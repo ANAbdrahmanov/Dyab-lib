@@ -5,7 +5,7 @@
 
 using namespace std;
 
-AVL_tree::AVL_node::AVL_node(int v, AVL_node* l = 0, AVL_node* r = 0, AVL_node* p = 0, int bal = 0){
+AVL_tree::AVL_node::AVL_node(int v, AVL_node* l = nullptr, AVL_node* r = nullptr, AVL_node* p = nullptr, int bal = 0){
     val = v;
     left = l;
     right = r;
@@ -14,7 +14,7 @@ AVL_tree::AVL_node::AVL_node(int v, AVL_node* l = 0, AVL_node* r = 0, AVL_node* 
 }
 
 AVL_tree::AVL_tree(){
-    root = 0;
+    root = nullptr;
 }
 
 AVL_tree::AVL_tree(int v){
@@ -34,14 +34,14 @@ void AVL_tree::Destruct(AVL_node* r){
 }
 
 bool AVL_tree::add(int k){
-    if(root == 0){
+    if(root == nullptr){
         root = new AVL_node(k);
         return true;
     }
     AVL_node* current = root;
     while(true)
         if(current->val > k)
-            if(current->left == 0){
+            if(current->left == nullptr){
                 current->left = new AVL_node(k,0,0,current);
                 balance_add(current, -1);
                 break;
