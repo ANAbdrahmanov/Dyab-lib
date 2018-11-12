@@ -1,7 +1,6 @@
 set(FIND_DYABLIB_PATHS "C:/Users/Aidar/CLionProjects/DyabLib")
 
-find_path(DYABLIB_INCLUDE_DIR includes/
-        PATHS ${FIND_DYABLIB_PATHS})
+set(DYABLIB_INCLUDE_DIR "${FIND_DYABLIB_PATHS}/includes")
 
 find_library(DYABLIB_LIBRARY
         NAMES dyablib
