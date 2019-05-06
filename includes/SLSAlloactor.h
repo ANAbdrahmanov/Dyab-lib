@@ -9,7 +9,7 @@ public:
     SLSAllocator(){
         ptr_ = buf_;
     }
-    ~SLSAllocator(){
+    ~SLSAllocator(){//??questionable, seems useless
         ptr_ = nullptr;
     }
     bool owns(char* p){
